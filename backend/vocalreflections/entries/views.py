@@ -15,3 +15,12 @@ class EntryListAPI(APIView):
         entries = self.model_class.objects.all()
         serializer = self.serializer_class(entries, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+class EntryAudioAPI(APIView):
+    model_class = Entry
+    serializer_class = EntrySerializer
+
+    def get(self, request, pk):
+        audio = self.model_class.objects.get(pk=pk)
+        serializer = self.serializer_class(audio)
+        return Response(serializer.data, status=status.HTTP_200_OK)
