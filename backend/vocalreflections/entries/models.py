@@ -10,4 +10,4 @@ class Entry(models.Model):
     audio = models.FileField(upload_to="audio/")
 
     def __str__(self):
-        return self.title
+        return str(self.reflector) + " " + str(self.created_at)
