@@ -20,7 +20,7 @@
 {#each data.entries as entry}
 	<div>
 		<h2>{entry.created_at.toLocaleDateString('en-US')}</h2>
-		<h3>{sentimentToText(entry.sentiment)}</h3>
+		<h3>Sentiment: {sentimentToText(entry.sentiment)}</h3>
 		<p>{entry.body}</p>
 	</div>
 {/each}
