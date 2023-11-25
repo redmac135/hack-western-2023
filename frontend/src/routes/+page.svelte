@@ -4,6 +4,7 @@
 	import { goto } from '$app/navigation';
 	let media = [];
 	let mediaRecorder = null;
+	let recording: boolean;
 
 	async function uploadAudio(blob) {
 		const formData = new FormData();
@@ -21,25 +22,40 @@
 			media.push(e.data);
 		};
 		mediaRecorder.onstop = function () {
-			console.log('stopped');
 			const blob = new Blob(media, { type: 'audio/ogg' });
 			uploadAudio(blob);
 		};
 		media = [];
 	});
 	function startRecording() {
+		console.log('started recording');
 		mediaRecorder.start();
 	}
 	function stopRecording() {
+		console.log('stopped recording');
 		mediaRecorder.stop();
+	}
+
+	function handleRecordingToggle() {
+		// note: this value is reversed as handle change gets called before bind is called.
+		if (recording) {
+			startRecording();
+		} else {
+			stopRecording();
+		}
 	}
 </script>
 
 <!-- you can write any html here -->
 <h1>This is my title!</h1>
 <p>here's some body tages</p>
-<button on:click|preventDefault={startRecording}>Start</button>
-<button on:click|preventDefault={stopRecording}>Stop</button>
+<input
+	type="checkbox"
+	name="record"
+	id="record"
+	bind:checked={recording}
+	on:change={handleRecordingToggle}
+/>
 
 <style>
 	/* then your styles go at the bottom in a "style" tag */
