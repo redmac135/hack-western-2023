@@ -9,9 +9,17 @@
 
 <style>
 	/* then your styles go at the bottom in a "style" tag */
+	
+	body {
+		font-family: "Poppins", sans-serif;
+		background-color: #f4f4f4;
+		margin: 0;
+		padding: 0;
+	}
 
 	h1 {
-		color: red;
+		text-align: center; 
+		color: #333;
 	}
 
 	p {

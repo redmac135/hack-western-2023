@@ -25,4 +25,36 @@
 
 <style>
 	/* style goes here */
+	@ import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+	body {
+		font-family: "Poppins", sans-serif;
+		background-color: #f4f4f4;
+		margin: 0;
+		padding: 0;
+
+	}
+
+	h1 {
+		text-align: center;
+		color: #333;
+	}
+
+	div {
+		border: 1px solid #ddd;
+		margin: 10px;
+		padding: 10px;
+	}
+
+	h2 {
+		color: #555;
+	}
+
+	h3 {
+		color: green
+	}
+
+	p {
+		color: #333;
+	}
 </style>
