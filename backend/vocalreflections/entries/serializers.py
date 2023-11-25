@@ -11,4 +11,4 @@ class EntrySerializer(serializers.ModelSerializer):
 class EntryAudioSerializer(serializers.ModelSerializer):
     class Meta:
         model = Entry
-        fields = "__all__"
+        fields = ["audio"]
