@@ -47,8 +47,8 @@
 </script>
 
 <!-- you can write any html here -->
-<h1>This is my title!</h1>
-<p>here's some body tages</p>
+<h1>Talk About Your Day...</h1>
+<p>Start Recording</p>
 <input
 	type="checkbox"
 	name="record"
@@ -59,20 +59,64 @@
 
 <style>
 	/* then your styles go at the bottom in a "style" tag */
-	
-	body {
-		font-family: "Poppins", sans-serif;
-		background-color: #f4f4f4;
-		margin: 0;
-		padding: 0;
-	}
 
 	h1 {
-		text-align: center; 
-		color: #333;
-	}
+    text-align: center;
+    color: #333;
+    margin-top: 20px;
+    font-size: 1.5em;
+  }
 
-	p {
-		color: blue;
-	}
+  p {
+    color: blue;
+  }
+
+  input {
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  /* Style the checkbox */
+  input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    display: inline-block;
+    position: relative;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  input[type="checkbox"]:checked {
+    background-color: #4caf50;
+    border: 1px solid #45a049;
+  }
+
+  /* Style the checkbox slider */
+  input[type="checkbox"]:before {
+    content: '';
+    position: absolute;
+    height: 18px;
+    width: 18px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: 0.4s;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+
+  input[type="checkbox"]:checked:before {
+    transform: translateX(20px);
+    border: 1px solid #45a049;
+  }
+
+  /* Additional styling for the recording status */
+  p.recording {
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
+  }
 </style>

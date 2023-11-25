@@ -18,3 +18,34 @@
 		<p>{data.most_negative.sentiment}</p>
 	</div>
 </main>
+
+<style>
+	h1 {
+		font-family: "Open Sans", sans-serif;
+		text-align: center;
+		color: #333;
+	}
+
+	div {
+		background-color: #fff;
+		border: 1px solid #ddd;
+		margin: 10px;
+		padding: 15px;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	}
+
+	h2 {
+		font-family: "Open Sans", sans-serif;
+		color: #333;
+	}
+
+	h3 {
+		font-family: "Open Sans", sans-serif;
+		color: #0066cc;
+	}
+
+	p {
+		font-family: "Open Sans", sans-serif;
+		color: #555;
+	}
+</style>

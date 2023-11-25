@@ -1,4 +1,5 @@
 <script lang="ts">
+ import Tmp from '$lib/components/Tmp.svelte';
 	export let data;
 
 	// converts 1-5 sentiement score to text
@@ -13,6 +14,7 @@
 	}
 </script>
 
+<Tmp />
 <h1>Entries</h1>
 
 {#each data.entries as entry}
@@ -25,36 +27,33 @@
 
 <style>
 	/* style goes here */
-	@ import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
-
-	body {
-		font-family: "Poppins", sans-serif;
-		background-color: #f4f4f4;
-		margin: 0;
-		padding: 0;
-
-	}
-
+	
 	h1 {
+		font-family: "Open Sans", sans-serif;
 		text-align: center;
 		color: #333;
 	}
 
 	div {
+		background-color: #fff;
 		border: 1px solid #ddd;
 		margin: 10px;
-		padding: 10px;
+		padding: 15px;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 	}
 
 	h2 {
-		color: #555;
+		font-family: "Open Sans", sans-serif;
+		color: #333;
 	}
 
 	h3 {
-		color: green
+		font-family: "Open Sans", sans-serif;
+		color: #0066cc;
 	}
 
 	p {
-		color: #333;
+		font-family: "Open Sans", sans-serif;
+		color: #555;
 	}
 </style>
