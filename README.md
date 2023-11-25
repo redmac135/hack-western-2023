@@ -1,2 +1,2 @@
-# hack-western-2023
-Hack Western Hackathon 2023
+# Hack Western 2023 Project
+Title: Speech to Text Reflective Journaling App
