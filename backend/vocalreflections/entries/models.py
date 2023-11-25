@@ -12,8 +12,9 @@ class EntryAudio(models.Model):
 class Entry(models.Model):
     reflector = models.ForeignKey(Reflector, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
+    sentiment = models.IntegerField()
     content = models.TextField()
-    audio = models.ForeignKey(EntryAudio, on_delete=models.CASCADE)
+    audio = models.ForeignKey(EntryAudio, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return str(self.reflector) + " " + str(self.created_at)
