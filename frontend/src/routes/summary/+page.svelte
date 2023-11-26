@@ -53,6 +53,6 @@
 
 	p {
 		font-family: "Open Sans", sans-serif;
-		color: #555;
+		color: #0066cc;
 	}
 </style>
