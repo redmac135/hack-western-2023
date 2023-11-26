@@ -6,16 +6,16 @@
 	let mediaRecorder = null;
 	let recording: boolean;
 
-	// async function uploadAudio(blob) {
-	// 	const formData = new FormData();
-	// 	formData.append('audio', blob);
-	// 	// Tmp user id
-	// 	formData.append('useruid', '1');
-	// 	return await fetch(`${PUBLIC_BACKEND_URL}entries/create/`, {
-	// 		method: 'POST',
-	// 		body: formData
-	// 	}).then(() => goto('/entries'));
-	// }
+	async function uploadAudio(blob) {
+		const formData = new FormData();
+		formData.append('audio', blob);
+		// Tmp user id
+		formData.append('useruid', '1');
+		return await fetch(`${PUBLIC_BACKEND_URL}entries/create/`, {
+			method: 'POST',
+			body: formData
+		}).then(() => goto('/entries/?newentry=true'));
+	}
 
 	onMount(async () => {
 		const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
