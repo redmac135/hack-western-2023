@@ -71,7 +71,7 @@
 	}
 
 	.newentry:first-child {
-		animation: pulse 0.8s ease-in-out;
+		animation: pulse 2s ease-in-out;
 		animation-iteration-count: 1;
 	}
 
@@ -79,7 +79,10 @@
 		0% {
 			background-color: white;
 		}
-		70% {
+		30% {
+			background-color: gold;
+		}
+		80% {
 			background-color: gold;
 		}
 		100% {
