@@ -31,7 +31,6 @@ class Entry(models.Model):
         )[0]
         audio_class = EntryAudio.objects.create(audio=audio)
         content = SpeechProcessor(audio_class.audio.path).process()
-        print(content)
         sentiment_analysis = SentimentProcessor(content).process()
 
         entry = cls.objects.create(
