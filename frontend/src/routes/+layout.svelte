@@ -1,7 +1,7 @@
 <nav>
 	<a href="/">Home</a>
-	<a href="/entries">About</a>
-	<a href="/summary">Contact</a>
+	<a href="/entries">Entries</a>
+	<a href="/summary">Summary</a>
 </nav>
 <slot />
 
@@ -10,8 +10,8 @@
 		display: flex;
 		justify-content: right;
 		align-items: center;
-		width: 100%;
 		height: 4rem;
+		padding-right: 2rem;
 	}
 
 	a {
