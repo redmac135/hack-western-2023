@@ -2,34 +2,25 @@ from google.cloud import speech
 
 
 class SpeechProcessor:
-    def __init__(self, audio: bytes):
-        self.audio = audio
-
-    def process(self):
-        response = self.speech_to_text(
-            config=self.get_config(),
-            audio=self.get_audio(),
-        )
-        # getting best result
-        return response.results[0].alternatives[0].transcript
-
-    def speech_to_text(
-        config: speech.RecognitionConfig,
-        audio: speech.RecognitionAudio,
-    ) -> speech.RecognizeResponse:
-        client = speech.SpeechClient()
-
-        # Synchronous speech recognition request
-        response = client.recognize(config=config, audio=audio)
-
-        return response
-
-    def get_config(self):
-        return speech.RecognitionConfig(
-            encoding=speech.RecognitionConfig.AudioEncoding.LINEAR16,
-            sample_rate_hertz=16000,
+    def __init__(self, audio_path: bytes):
+        print(audio_path)
+        with open(audio_path, "rb") as audio_file:
+            self.audio = speech.RecognitionAudio(content=audio_file.read())
+        self.config = speech.RecognitionConfig(
+            encoding=speech.RecognitionConfig.AudioEncoding.WEBM_OPUS,
+            sample_rate_hertz=48000,
             language_code="en-US",
         )
 
-    def get_audio(self):
-        return speech.RecognitionAudio(content=self.audio)
+    def process(self):
+        response = self.speech_to_text()
+        # getting best result
+        return response.results[0].alternatives[0].transcript
+
+    def speech_to_text(self) -> speech.RecognizeResponse:
+        client = speech.SpeechClient()
+
+        # Synchronous speech recognition request
+        response = client.recognize(config=self.config, audio=self.audio)
+
+        return response

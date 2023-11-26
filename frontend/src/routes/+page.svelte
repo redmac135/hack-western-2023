@@ -9,6 +9,8 @@
 	async function uploadAudio(blob) {
 		const formData = new FormData();
 		formData.append('audio', blob);
+		// Tmp user id
+		formData.append('useruid', '1');
 		return await fetch(`${PUBLIC_BACKEND_URL}entries/create/`, {
 			method: 'POST',
 			body: formData
@@ -60,55 +62,55 @@
 <style>
 	/* then your styles go at the bottom in a "style" tag */
 
-	 h1 {
-        font-family: "Open Sans", sans-serif;
-        text-align: center;
-        color: #333;
-    }
+	h1 {
+		font-family: 'Open Sans', sans-serif;
+		text-align: center;
+		color: #333;
+	}
 
-    p {
-        font-family: "Open Sans", sans-serif;
+	p {
+		font-family: 'Open Sans', sans-serif;
 		color: #0066cc;
-    }
+	}
 
-    input {
-        margin-top: 10px;
-        margin-bottom: 20px;
-    }
+	input {
+		margin-top: 10px;
+		margin-bottom: 20px;
+	}
 
-    /* Style the checkbox container */
-    .checkbox-container {
-        display: flex;
-        align-items: center;
-    }
+	/* Style the checkbox container */
+	.checkbox-container {
+		display: flex;
+		align-items: center;
+	}
 
-    /* Style the checkbox */
-    input[type="checkbox"] {
-        appearance: none;
-        width: 100px;
-        height: 100px;
-        background-color: #eee;
-        border: 2px solid #ccc;
-        display: inline-block;
-        position: relative;
-        border-radius: 3px;
-        cursor: pointer;
-    }
+	/* Style the checkbox */
+	input[type='checkbox'] {
+		appearance: none;
+		width: 100px;
+		height: 100px;
+		background-color: #eee;
+		border: 2px solid #ccc;
+		display: inline-block;
+		position: relative;
+		border-radius: 3px;
+		cursor: pointer;
+	}
 
-    input[type="checkbox"]:checked {
-        background-color: #4caf50;
-        border: 1px solid #45a049;
-    }
+	input[type='checkbox']:checked {
+		background-color: #4caf50;
+		border: 1px solid #45a049;
+	}
 
-    input[type="checkbox"]:checked:before {
-        transform: translateX(20px);
-        border: 1px solid #45a049;
-    }
+	input[type='checkbox']:checked:before {
+		transform: translateX(20px);
+		border: 1px solid #45a049;
+	}
 
-    /* Additional styling for the recording status */
-    p.recording {
-        color: red;
-        font-weight: bold;
-        margin-top: 10px;
-    }
+	/* Additional styling for the recording status */
+	p.recording {
+		color: red;
+		font-weight: bold;
+		margin-top: 10px;
+	}
 </style>

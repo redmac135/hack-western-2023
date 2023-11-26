@@ -1,5 +1,5 @@
 <script lang="ts">
- import Tmp from '$lib/components/Tmp.svelte';
+	import Tmp from '$lib/components/Tmp.svelte';
 	export let data;
 
 	// converts 1-5 sentiement score to text
@@ -19,17 +19,17 @@
 
 {#each data.entries as entry}
 	<div>
-		<h2>{entry.created_at.toLocaleDateString('en-US')}</h2>
+		<h2>{entry.created_at}</h2>
 		<h3>Sentiment: {sentimentToText(entry.sentiment)}</h3>
-		<p>{entry.body}</p>
+		<p>{entry.content}</p>
 	</div>
 {/each}
 
 <style>
 	/* style goes here */
-	
+
 	h1 {
-		font-family: "Open Sans", sans-serif;
+		font-family: 'Open Sans', sans-serif;
 		text-align: center;
 		color: #333;
 	}
@@ -43,17 +43,17 @@
 	}
 
 	h2 {
-		font-family: "Open Sans", sans-serif;
+		font-family: 'Open Sans', sans-serif;
 		color: #333;
 	}
 
 	h3 {
-		font-family: "Open Sans", sans-serif;
+		font-family: 'Open Sans', sans-serif;
 		color: #0066cc;
 	}
 
 	p {
-		font-family: "Open Sans", sans-serif;
+		font-family: 'Open Sans', sans-serif;
 		color: #555;
 	}
 </style>

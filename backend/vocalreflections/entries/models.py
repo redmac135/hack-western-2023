@@ -2,6 +2,7 @@ from django.db import models
 from reflectors.models import Reflector
 from gcloudapi.sentiment_analysis import SentimentProcessor
 from gcloudapi.speech_to_text import SpeechProcessor
+from django.core.files.uploadedfile import InMemoryUploadedFile
 
 
 class EntryAudio(models.Model):
@@ -23,17 +24,21 @@ class Entry(models.Model):
         return str(self.reflector) + " " + str(self.created_at)
 
     @classmethod
-    def create_entry(cls, reflector_uid: str, audio_pk):
-        reflector = Reflector.objects.get(uid=reflector_uid)
-        audio = EntryAudio.objects.get(pk=audio_pk).audio
-        content = SpeechProcessor(audio).process()
+    def create_entry(cls, reflector_uid: str, audio: InMemoryUploadedFile):
+        # Get or Create method used due to forntend use of tmp useruid
+        reflector = Reflector.objects.get_or_create(
+            uid=reflector_uid, display_name="tmp", email="fakeemail@fake.mail"
+        )[0]
+        audio_class = EntryAudio.objects.create(audio=audio)
+        content = SpeechProcessor(audio_class.audio.path).process()
+        print(content)
         sentiment_analysis = SentimentProcessor(content).process()
 
         entry = cls.objects.create(
             reflector=reflector,
-            audio=audio,
+            audio=audio_class,
             content=content,
-            sentiment=sentiment_analysis.score,
-            magnitude=sentiment_analysis.magnitude,
+            sentiment=sentiment_analysis["score"],
+            magnitude=sentiment_analysis["magnitude"],
         )
         return entry

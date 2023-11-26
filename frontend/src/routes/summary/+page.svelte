@@ -10,19 +10,19 @@
 	</div>
 	<div>
 		<h2>Most Positive Entry</h2>
-		<p>{data.most_positive.created_at.toLocaleDateString('en-US')}</p>
+		<p>{data.most_positive.created_at}</p>
 		<p>{data.most_positive.sentiment}</p>
 	</div>
 	<div>
 		<h2>Most Negative Entry</h2>
-		<p>{data.most_negative.created_at.toLocaleDateString('en-US')}</p>
+		<p>{data.most_negative.created_at}</p>
 		<p>{data.most_negative.sentiment}</p>
 	</div>
 </main>
 
 <style>
 	h1 {
-		font-family: "Open Sans", sans-serif;
+		font-family: 'Open Sans', sans-serif;
 		text-align: center;
 		color: #333;
 	}
@@ -36,23 +36,18 @@
 	}
 
 	h1 {
-		font-family: "Open Sans", sans-serif;
+		font-family: 'Open Sans', sans-serif;
 		text-align: center;
 		color: #333;
 	}
 
 	h2 {
-		font-family: "Open Sans", sans-serif;
+		font-family: 'Open Sans', sans-serif;
 		color: #333;
 	}
 
-	h3 {
-		font-family: "Open Sans", sans-serif;
-		color: #0066cc;
-	}
-
 	p {
-		font-family: "Open Sans", sans-serif;
+		font-family: 'Open Sans', sans-serif;
 		color: #0066cc;
 	}
 </style>

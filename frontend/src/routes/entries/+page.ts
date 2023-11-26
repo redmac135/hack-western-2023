@@ -1,21 +1,10 @@
 import type { Entries } from '$lib/schema';
+import { PUBLIC_BACKEND_URL } from '$env/static/public';
 
 // Temporary test data
-const tmp_data: Entries = [
-	{
-		id: '1',
-		sentiment: 5,
-		created_at: new Date(),
-		body: 'This is a test entry.'
-	},
-	{
-		id: '2',
-		sentiment: 3,
-		created_at: new Date(),
-		body: 'This is another test entry.'
-	}
-];
-
-export function load(): { entries: Entries } {
-	return { entries: tmp_data };
+export async function load({ fetch }): Promise<{ entries: Entries }> {
+	const res = await fetch(`${PUBLIC_BACKEND_URL}/entries/list/`);
+	const data = await res.json();
+	data.sort((a, b) => ('' + b.created_at).localeCompare('' + a.created_at));
+	return { entries: data };
 }
