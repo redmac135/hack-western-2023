@@ -12,3 +12,23 @@ export async function load({ fetch }) {
 		most_negative: data[0]
 	};
 }
+
+// export function load() {
+// 	return {
+// 		average_sentiment: 0.5,
+// 		most_positive: {
+// 			id: '1',
+// 			sentiment: 0.5,
+// 			magnitude: 0.5,
+// 			created_at: new Date().toString(),
+// 			content: 'This is a test entry'
+// 		},
+// 		most_negative: {
+// 			id: '2',
+// 			sentiment: 0.5,
+// 			magnitude: 0.5,
+// 			created_at: new Date().toString(),
+// 			content: 'This is a test entry'
+// 		}
+// 	};
+// }
