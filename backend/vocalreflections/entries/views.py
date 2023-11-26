@@ -29,11 +29,12 @@ class EntryAudioAPI(APIView):
 
 
 class EntryCreateAPI(APIView):
-    model_class = EntryAudio
-    serializer_class = EntryAudioSerializer
+    model_class = Entry
     parser_classes = [MultiPartParser, FormParser]
 
     def post(self, request):
-        print(request.data)
-        self.model_class.objects.create(audio=request.data["audio"])
+        # Request should include "useruid" and "audio"
+        self.model_class.create_entry(
+            reflector_uid=request.data["useruid"], audio=request.data["audio"]
+        )
         return Response(status=status.HTTP_201_CREATED)
